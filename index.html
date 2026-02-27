@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Калькулятор Виктора</title>
+    <style>
+        /* Немного "декоративки" для сайта */
+        body { font-family: sans-serif; text-align: center; padding: 50px; background: #f4f4f4; }
+        .box { background: white; padding: 20px; border-radius: 15px; display: inline-block; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        input { padding: 10px; margin: 10px; border: 1px solid #ccc; border-radius: 5px; width: 100px; }
+        button { padding: 10px 20px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #218838; }
+        #result { font-size: 24px; font-weight: bold; margin-top: 20px; color: #333; }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h2>Калькулятор работ</h2>
+        
+        <input type="number" id="priceInput" placeholder="Цена ($)" value="17">
+        <input type="number" id="areaInput" placeholder="Квадраты (м²)">
+        <br>
+        <button onclick="calculate()">Посчитать итог</button>
+
+        <div id="result">Итого: 0$</div>
+    </div>
+
+    <script>
+        // Функция, которая срабатывает при нажатии на кнопку
+        function calculate() {
+            // 1. Берем значения из полей ввода
+            let price = document.getElementById('priceInput').value;
+            let area = document.getElementById('areaInput').value;
+
+            // 2. Считаем
+            let total = price * area;
+
+            // 3. Выводим результат на экран
+            document.getElementById('result').innerText = "Итого: " + total + "$";
+            
+            // Маленький бонус: уведомление
+            if (total > 0) {
+                console.log("Расчет выполнен успешно!");
+            }
+        }
+    </script>
+
+</body>
+</html>
